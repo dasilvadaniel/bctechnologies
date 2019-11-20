@@ -1,5 +1,3 @@
-## Bio Conscious Technologies
-
 # Blood Glucose Forecasting
 
 The objective of this project is to  to make predictions of future blood glucose values, based on measured values, 60 minutes into the future.  
@@ -27,7 +25,6 @@ You can run in your local environment or in an anaconda environment (recommended
 
 ```
 conda create -n bctechnologies python=3.7 anaconda
-
 ```
 
 Install tensorflow and other packages:
