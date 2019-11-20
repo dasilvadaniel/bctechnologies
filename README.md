@@ -15,9 +15,6 @@ numpy==1.16.5
 matplotlib==3.1.1
 sklearn==0.21.3
 
-```
-pip install tensorflow
-```
 
 ### Installing
 
@@ -31,6 +28,11 @@ Install tensorflow and other packages:
 
 ```
 pip install tensorflow
+pip install pandas
+pip install numpy
+pip install matplotlib
+pip install scikit-learn
+
 ```
 
 ## Folders
@@ -52,17 +54,22 @@ pip install tensorflow
 Accuracy by Clarke Error Grid Zones: (https://en.m.wikipedia.org/wiki/Clarke_Error_Grid)
 RMSE (Root Mean Square Error)
     
-## Result
+## Sample of result
 
 ```
-RMSE normalized for 5 minutes:  0.21814742393029624
-RMSE without normalization for 5 minutes:  18.23084970169596
-Accuracy in zones A:  89.36802973977696 %
-Accuracy in zones A, B:  96.31970260223048 %
-Accuracy in zones A, B, C:  96.43122676579927 %
+Overall RMSE with normalization:  0.36561007741476476
+Overall RMSE without normalization:  30.55448697159304
+Data points by zone:  [23855, 6354, 113, 1958, 0]
+Accuracy in zones A:  73.9002478314746 %
+Accuracy in zones A, B:  93.58426270136307 %
+Accuracy in zones A, B, C:  93.93432465923172 %
 Accuracy in zones A, B, C, D:  100.0 %
 Accuracy in zones A, B, C, D, E:  100.0 %
 ```
+
+[Clarke Error Grid](https://ibb.co/6gsDkfV)
+
+
 ## Built With
 
 * [Tensorflow](https://www.tensorflow.org/)
