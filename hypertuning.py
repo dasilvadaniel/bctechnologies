@@ -196,9 +196,9 @@ def run(run_dir, hparams):
     tf_mse = train_test_model(hparams, train_data, val_data, x_train, y_train)
     tf.summary.scalar(METRIC_MSE, tf_mse, step=1)
 
-TRAIN_SPLIT = 600
-VALIDATION_SPLIT = 1000
-past_history = 200       #How many data points will be assessed to 
+TRAIN_SPLIT = 6000
+VALIDATION_SPLIT = 10000
+past_history = 2000       #How many data points will be assessed to 
                           #...predict the next 12 data points
 STEP = 1                  #How long each forecast will be made. Since
                           #...the dataset has 5 minute intervals, each 

@@ -38,7 +38,7 @@ pip install scikit-learn
 ## Folders
 
    
-    ├── data                  # Model files and logs (subfolders will be created automatically)
+    ├── data                  # Data files
     │   ├── blood-glucose-data.csv
     │   ├── distance-activity-data.csv         
     │   └── heart-rate-data.csv
@@ -67,6 +67,7 @@ Accuracy in zones A, B, C, D:  100.0 %
 Accuracy in zones A, B, C, D, E:  100.0 %
 ```
 
+Clarke Error Grid containing all data points from the 12 predictions:
 [Clarke Error Grid](https://ibb.co/6gsDkfV)
 
 

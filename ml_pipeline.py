@@ -459,15 +459,15 @@ def split_dataset(data):
   '''
 
   train, test = data[1:-8699], data[-8700:-12]
-  # restructure into windows of weekly data
+  # restructure into windows of data
   train = np.array(np.split(train, len(train)/12))
   test = np.array(np.split(test, len(test)/12))
   return train, test
 
-# evaluate one or more weekly forecasts against expected values
+# evaluate one or more steps forecasts against expected values
 def sk_evaluate_forecasts(actual, predicted):
   scores = list()
-  # calculate an RMSE score for each day
+  # calculate an RMSE score for each step
   for i in range(actual.shape[1]):
     # calculate mse
     mse = mean_squared_error(actual[:, i], predicted[:, i])
@@ -534,7 +534,7 @@ def make_pipeline(model):
 	pipeline = Pipeline(steps=steps)
 	return pipeline
 
-# # convert windows of weekly multivariate data into a series of total power
+# # convert windows of steps multivariate data into a series of total steps
 def to_series(data):
 	# extract just the total power from each week
 	series = [week[:, 0] for week in data]
@@ -581,22 +581,22 @@ def sklearn_predict(model, history, n_input):
 
 # evaluate a single model
 def evaluate_model(model, train, test, n_input):
-  # history is a list of weekly data
+  # history is a list of steps data
   history = [x for x in train]
   
-  # walk-forward validation over each week
+  # walk-forward validation over steps
   predictions = list()
   for i in range(len(test)):
     # predict the week
     yhat_sequence = sklearn_predict(model, history, n_input)
     # store the predictions
     predictions.append(yhat_sequence)
-    # get real observation and add to history for predicting the next week
+    # get real observation and add to history for predicting the next steps
     history.append(test[i, :])
   
   predictions = np.array(predictions)
 
-  # evaluate predictions days for each week
+  # evaluate predictions
   score, scores = sk_evaluate_forecasts(test[:, :, 0], predictions)
 
   return score, scores
